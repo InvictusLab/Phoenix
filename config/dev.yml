@@ -1,0 +1,19 @@
+services:
+  phoenix:
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: phoenix
+      # 可以按需添加更多环境变量，例如：
+      MYSQL_DATABASE: phoenix
+      MYSQL_USER: debug
+      MYSQL_PASSWORD: debug
+    ports:
+      - "3306:3306"
+    volumes:
+      - phoenix:/var/lib/mysql
+    container_name: phoenix
+
+volumes:
+  phoenix:
