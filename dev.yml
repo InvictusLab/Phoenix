@@ -1,5 +1,5 @@
 services:
-  phoenix:
+  mysql:
     image: mysql:8.0
     command: --default-authentication-plugin=mysql_native_password
     restart: always
@@ -12,8 +12,8 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - phoenix:/var/lib/mysql
-    container_name: phoenix
+      - mysql:/var/lib/mysql
+    container_name: phoenix_mysql
 
 volumes:
-  phoenix:
+  mysql:
